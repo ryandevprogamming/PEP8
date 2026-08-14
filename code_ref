@@ -60,3 +60,44 @@ def listar_produtos(estoque):
             )
  
     print("==============================")
+
+
+def listar_estoque_baixo(estoque, minimo=ESTOQUE_MINIMO):
+    """Exibe produtos com quantidade abaixo do mínimo definido."""
+    print(f"Produtos com estoque baixo (menor que {minimo}):")
+    produtos_baixos = [p for p in estoque if p["quantidade"] < minimo]
+ 
+    if not produtos_baixos:
+        print("Nenhum produto com estoque baixo.")
+    else:
+        for produto in produtos_baixos:
+            print(f"{produto['nome']} - qtd: {produto['quantidade']}")
+ 
+ 
+def ler_inteiro(mensagem):
+    """Solicita um número inteiro ao usuário, tratando entradas inválidas."""
+    while True:
+        try:
+            return int(input(mensagem))
+        except ValueError:
+            print("Valor inválido. Digite um número inteiro.")
+ 
+ 
+def ler_float(mensagem):
+    """Solicita um número decimal ao usuário, tratando entradas inválidas."""
+    while True:
+        try:
+            return float(input(mensagem))
+        except ValueError:
+            print("Valor inválido. Digite um número decimal.")
+ 
+ 
+def exibir_menu():
+    """Exibe as opções do menu principal."""
+    print("\n1 - Cadastrar produto")
+    print("2 - Adicionar estoque")
+    print("3 - Listar produtos")
+    print("4 - Remover produto")
+    print("5 - Valor total do estoque")
+    print("6 - Produtos com estoque baixo")
+    print("0 - Sair")
