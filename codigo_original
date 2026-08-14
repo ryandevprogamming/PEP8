@@ -15,3 +15,33 @@ def add2(nome,qtd):
             print("estoque atualizado")
             return
     print("produto nao encontrado") 
+
+def calc():
+    t=0
+    for x in e:
+        t=t+(x['qtd']*x['preco'])
+    return t
+
+def lista():
+    print("=====LISTA DE PRODUTOS=====")
+    for x in e:
+        print(x['nome'],'-','qtd:',x['qtd'],'-','preco: R$',x['preco'])
+    print("============================")
+
+def rem(n):
+    global e 
+    achou = 0
+    for x in e:
+        if x['nome']==n:
+            e.remove(x)
+            achou=1
+            print("produto removido")
+            break
+    if achou == 0:
+        print("produto nao encontrado")
+
+def buscaBaixoEstoque():
+    print("produtos com estoque baixo (menor que 5):")
+    for x in e:
+        if x['qtd']<5:
+            print(x['nome'],"-","qtd",x['qtd'])
