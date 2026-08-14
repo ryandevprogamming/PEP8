@@ -25,3 +25,38 @@ def atualizar_estoque(estoque, nome, quantidade_adicional):
             return
  
     print("Produto não encontrado.")
+
+def remover_produto(estoque, nome):
+    """Remove um produto do estoque pelo nome."""
+    for produto in estoque:
+        if produto["nome"] == nome:
+            estoque.remove(produto)
+            print("Produto removido com sucesso!")
+            return
+ 
+    print("Produto não encontrado.")
+ 
+ 
+def calcular_valor_total(estoque):
+    """Calcula o valor total do estoque somando quantidade * preço."""
+    total = 0
+    for produto in estoque:
+        total += produto["quantidade"] * produto["preco"]
+ 
+    return total
+ 
+ 
+def listar_produtos(estoque):
+    """Exibe todos os produtos cadastrados no estoque."""
+    print("===== LISTA DE PRODUTOS =====")
+ 
+    if not estoque:
+        print("Nenhum produto cadastrado.")
+    else:
+        for produto in estoque:
+            print(
+                f"{produto['nome']} - qtd: {produto['quantidade']} "
+                f"- preço: R$ {produto['preco']:.2f}"
+            )
+ 
+    print("==============================")
