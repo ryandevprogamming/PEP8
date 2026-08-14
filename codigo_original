@@ -45,3 +45,43 @@ def buscaBaixoEstoque():
     for x in e:
         if x['qtd']<5:
             print(x['nome'],"-","qtd",x['qtd'])
+
+
+#programa principal
+
+while True:
+
+    print("\n1-Cadastrar produto")
+    print("2-Adicionar estoque")
+    print("3-Listar produtos")
+    print("4-Remover produto")
+    print("5-Valor total do estoque")
+    print("6-Produtos com estoque baixo")
+    print("0-Sair")
+    op=input("Escolha uma opcao: ") 
+
+
+    if op == "1":
+        nome = input("nome do produto:")
+        qtd = int(input("Quantidade:"))
+        preco = float(input("Preco:"))
+        add(nome,qtd,preco)
+
+    elif op=="2":
+        nome=input("Nome do produto: ")
+        qtd=int(input("Quantidade a adicionar: "))
+        add2(nome,qtd)
+    elif op=="3":
+        lista()
+    elif op=="4":
+        nome=input("Nome do produto a remover: ")
+        rem(nome)
+    elif op=="5":
+        print("Valor total do estoque: R$",calc())
+    elif op=="6":
+        buscaBaixoEstoque()
+    elif op=="0":
+        print("saindo...")
+        break
+    else:
+        print("opcao invalida!!")
