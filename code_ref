@@ -1,0 +1,27 @@
+"""
+Sistema de Controle de Estoque
+ 
+Permite cadastrar produtos, atualizar quantidades, listar o estoque,
+remover produtos, calcular o valor total e identificar produtos
+com estoque baixo.
+"""
+
+ESTOQUE_MINIMO = 5
+ 
+ 
+def cadastrar_produto(estoque, nome, quantidade, preco):
+    """Adiciona um novo produto ao estoque."""
+    produto = {"nome": nome, "quantidade": quantidade, "preco": preco}
+    estoque.append(produto)
+    print(f"Produto '{nome}' cadastrado com sucesso!")
+ 
+ 
+def atualizar_estoque(estoque, nome, quantidade_adicional):
+    """Adiciona quantidade a um produto já existente no estoque."""
+    for produto in estoque:
+        if produto["nome"] == nome:
+            produto["quantidade"] += quantidade_adicional
+            print("Estoque atualizado com sucesso!")
+            return
+ 
+    print("Produto não encontrado.")
