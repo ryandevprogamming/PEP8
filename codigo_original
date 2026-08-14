@@ -1,0 +1,17 @@
+import datetime
+
+e=[]
+
+def add(n,q,p):
+    global e
+    i = {'nome':n,'qtd':q,'preco':p}
+    e.append(i)
+    print("produto",n,"cadastrado com sucesso!")
+
+def add2(nome,qtd):
+    for x in e:
+        if x['nome']==nome:
+            x['qtd']=x['qtd']+qtd
+            print("estoque atualizado")
+            return
+    print("produto nao encontrado") 
