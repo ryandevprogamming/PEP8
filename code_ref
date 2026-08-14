@@ -101,3 +101,47 @@ def exibir_menu():
     print("5 - Valor total do estoque")
     print("6 - Produtos com estoque baixo")
     print("0 - Sair")
+
+
+def main():
+    """Executa o loop principal do sistema de controle de estoque."""
+    estoque = []
+ 
+    while True:
+        exibir_menu()
+        opcao = input("Escolha uma opção: ")
+ 
+        if opcao == "1":
+            nome = input("Nome do produto: ")
+            quantidade = ler_inteiro("Quantidade: ")
+            preco = ler_float("Preço: ")
+            cadastrar_produto(estoque, nome, quantidade, preco)
+ 
+        elif opcao == "2":
+            nome = input("Nome do produto: ")
+            quantidade = ler_inteiro("Quantidade a adicionar: ")
+            atualizar_estoque(estoque, nome, quantidade)
+ 
+        elif opcao == "3":
+            listar_produtos(estoque)
+ 
+        elif opcao == "4":
+            nome = input("Nome do produto a remover: ")
+            remover_produto(estoque, nome)
+ 
+        elif opcao == "5":
+            print(f"Valor total do estoque: R$ {calcular_valor_total(estoque):.2f}")
+ 
+        elif opcao == "6":
+            listar_estoque_baixo(estoque)
+ 
+        elif opcao == "0":
+            print("Saindo...")
+            break
+ 
+        else:
+            print("Opção inválida!")
+ 
+ 
+if __name__ == "__main__":
+    main()
